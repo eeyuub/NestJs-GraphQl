@@ -1,0 +1,43 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Item {
+  id: Float!
+  name: String!
+  price: Float!
+}
+
+type ItemPrice {
+  price: Float!
+}
+
+type Comment {
+  id: Int!
+  content: String!
+  productId: Int!
+}
+
+type Product {
+  id: Int!
+  name: String!
+  price: Float!
+  comments: [Comment]!
+}
+
+type Query {
+  getItems: [Item!]!
+  getAllProducts: [Product!]!
+}
+
+type Mutation {
+  createItem(name: String!, price: Float!): Item!
+  updatePrice(id: Float!, newPrice: Float!): Item!
+  getItem(id: Float!): Item
+  createProduct(name: String!, price: Float!): Product!
+  addComment(productId: Int!, content: String!): Comment!
+}
+
+type Subscription {
+  getPrice(id: Float!): ItemPrice!
+}
